@@ -1,0 +1,22 @@
+# Source data — company tracking exports, kept out of version control.
+# Total ~300MB; ad_impression.csv alone exceeds GitHub's 100MB file cap.
+# Obtain these separately and place them in the project root before
+# running sql/02_import_raw_data.sql.
+*.csv
+
+# Working drafts and the final written report — circulated directly
+# rather than through the repository.
+docs/analysis_draft_v1.md
+docs/analysis_draft_v2.md
+docs/bao_cao_phan_tich_san_pham_X.md
+
+# Power BI temporary and cache files
+*.pbix.tmp
+*.pbix.bak
+
+# OS and editor noise
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/

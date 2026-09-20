@@ -1,0 +1,85 @@
+{
+  "name": "Sunset Glow",
+  "dataColors": [
+    "#F8B51C",
+    "#F47A3A",
+    "#F38642",
+    "#E45144",
+    "#400101"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#400101",
+  "tableAccent": "#F47A3A",
+  "good": "#F8B51C",
+  "neutral": "#F38642",
+  "bad": "#E45144",
+  "maximum": "#F8B51C",
+  "center": "#F38642",
+  "minimum": "#400101",
+  "null": "#B3B3B3",
+  "textClasses": {
+    "callout": {
+      "color": "#400101"
+    },
+    "title": {
+      "color": "#400101",
+      "fontFace": "Segoe UI Semibold"
+    },
+    "header": {
+      "color": "#400101",
+      "fontFace": "Segoe UI Semibold"
+    },
+    "label": {
+      "color": "#400101"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "color": {
+              "solid": {
+                "color": "#F38642"
+              }
+            },
+            "show": false
+          }
+        ],
+        "outspacePane": [
+          {
+            "backgroundColor": {
+              "solid": {
+                "color": "#FDF3E3"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    }
+  }
+}
