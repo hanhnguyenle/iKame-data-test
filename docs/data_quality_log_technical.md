@@ -179,11 +179,3 @@ Kiểm tra `app_version` của user orphan (dùng `raw.main_function` đối chi
 **Cách xử lý**: sửa `dwh.fact_ad_impression` dùng `COALESCE(NULLIF(a.tier,''), u.tier)` — backfill được 7 dòng từ `dim_user`. 2,329 dòng còn lại (~0.24% tổng ad_impression) giữ nguyên `tier = NULL`, sẽ tự động bị loại khi `mart.fact_ad_impression` join với `dim_ecpm` (không match được), nên **không tính vào bất kỳ số liệu doanh thu/eCPM/LTV nào** — không có cách nào xác định tier thật của các dòng này nên đây là lựa chọn đúng thay vì đoán/gán tier mặc định.
 
 ---
-
-## 7. Việc còn cần làm
-
-- [x] Chạy lại `sql/04_dedupe_raw.sql` (bản mới nhất, dedupe 2 bước cho first_open) — xác nhận "first_open_clean users with >1 row" = 0.
-- [x] Chạy lại `sql/05_build_dwh.sql` (bản đã sửa lỗi 1-3 ở trên) — không còn lỗi PK; unmatched_users ở mọi fact được xác nhận là hiện tượng left-censoring hợp lệ (phát hiện 4), không phải lỗi cần sửa.
-- [x] Viết các VIEW trong schema `mart` (`sql/06_build_mart.sql`) theo từng nhu cầu dashboard.
-- [ ] Chạy lại `sql/06_build_mart.sql` sau khi `dwh` đã sửa — xác nhận `unmatched_ecpm_rows` và `dup_user_day_rows` đã về 0 (hoặc rất nhỏ, chỉ còn do tier NULL thật sự ở nguồn — xem phần dưới).
-- [ ] Điều tra riêng phần `tier = NULL` ở `raw.ad_impression` (2,336 dòng, không liên quan đến left-censoring) — xem có thể backfill từ `dim_user.tier` hay chấp nhận loại khỏi tính eCPM revenue.
